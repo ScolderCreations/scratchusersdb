@@ -5,7 +5,7 @@ from requests_html import HTMLSession
 session = HTMLSession()
 usersfound = set(())
 specildeal = "https://scratch.mit.edu/explore/studios/all/"
-filef = open("users.txt", "r")
+filef = open("index.json", "r")
 filecontent = filef.read()
 currentpage = session.get('http://scratch.mit.edu')
 
@@ -22,10 +22,10 @@ def loadpage():
         if "/scratch.mit.edu/users/" in link and not "/studios/" in link and not "/studios" in link and not "/favorites/" in link and not "/followers/" in link and not "/following/" in link and not "/projects/" in link and not "#comm" in link and not link in filecontent:
             usersfound.add(link)
     print("progressing")
-    filex = open("users.txt", "r")
+    filex = open("index.json", "r")
     filecont = filex.read()
     filex.close()
-    filex = open("users.txt", "a")
+    filex = open("index.json", "a")
 
     for link in usersfound:
         if not link in filecont:
@@ -35,7 +35,7 @@ def loadpage():
     return usersfound
 
 
-filex = open("users.txt", "r")
+filex = open("index.json", "r")
 
 loadpage()
 
@@ -49,7 +49,7 @@ currentpage = session.get(specildeal)
 
 loadpage()
 
-filex = open("users.txt", "r")
+filex = open("index.json", "r")
 
 specildeal = filex.readlines()[len(filex.readlines()) - randint(1, 200)]
 specildeal = specildeal.replace("\n", "")
