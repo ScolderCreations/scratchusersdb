@@ -63,3 +63,9 @@ if specildeal[len(specildeal) - 1] == "/":
 else:
     currentpage = session.get(specildeal + '/followers/')
 loadpage()
+
+if specildeal[len(specildeal) - 1] == "/":
+    currentpage = session.get(specildeal + 'following/')
+else:
+    currentpage = session.get(specildeal + '/following/')
+loadpage()
