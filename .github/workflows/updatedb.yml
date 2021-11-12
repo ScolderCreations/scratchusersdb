@@ -1,4 +1,4 @@
-name: Update datatbase
+name: Update database
 
 on:
   workflow_dispatch:
