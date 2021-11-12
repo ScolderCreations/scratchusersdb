@@ -19,21 +19,28 @@ def loadpage():
     links = currentpage.html.absolute_links
 
     for link in links:
-        if "/scratch.mit.edu/users/" in link and not "/studios/" in link and not "/studios" in link and not "/favorites/" in link and not "/followers/" in link and not "/following/" in link and not "/projects/" in link and not "#comm" in link and not link in filecontent:
+        if "/scratch.mit.edu/users/" in link and not "/studios/" in link and not "/studios" in link and not "/favorites/" in link and not "/followers/" in link and not "/following/" in link and not "/projects/" in link and not "#" in link and not link in filecontent:
             usersfound.add(link)
     print("progressing")
     filex = open("index.json", "r")
     filecont = filex.read()
+    filelinez = filex.readlines()
     filex.close()
     filex = open("index.json", "a")
 
     for link in usersfound:
         if not link in filecont:
-            filex.write(link + "\n")
-
+            filex.seek(len(filelinez) - 1)
+            filex.write(link + ",\n")
+    
+    if not "{[" in filecont:
+        filex.seek(0)
+        filex.write("{[")
+    if not "]}" in filecont:
+        filex.seek(len(filelinez))
+        filex.write("]}")
     filex.close()
     return usersfound
-
 
 filex = open("index.json", "r")
 
