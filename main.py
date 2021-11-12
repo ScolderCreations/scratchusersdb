@@ -31,7 +31,7 @@ def loadpage():
     for link in usersfound:
         if not link in filecont:
             filex.seek(len(filelinez) - 1)
-            filex.write(link + ",\n")
+            filex.write("\"" + link + "\",\n")
     
     if not "{[" in filecont:
         filex.seek(0)
