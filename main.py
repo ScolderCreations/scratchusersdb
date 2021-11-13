@@ -9,7 +9,7 @@ usersfound = set(())
 specildeal = "https://scratch.mit.edu/explore/studios/all/"
 filef = open("index.json", "r")
 filecontent = filef.read()
-filecontent = json.load(filecontent)
+filecontent = json.load(filef)
 currentpage = session.get('https://scratch.mit.edu')
 
 
@@ -27,7 +27,7 @@ def loadpage():
     print("progressing")
     filex = open("index.json", "r")
     filecont = filex.read()
-    filecont = json.load(filecont)
+    filecont = json.load(filex)
     filelinez = filex.readlines()
     filex.close()
     filex = open("index.json", "w")
