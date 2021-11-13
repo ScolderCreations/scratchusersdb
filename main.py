@@ -33,12 +33,7 @@ def loadpage():
             filex.seek(len(filelinez) - 1)
             filex.write("\"" + link + "\",\n")
     
-    if not "{[" in filecont:
-        filex.seek(0)
-        filex.write("{[")
-    if not "]}" in filecont:
-        filex.seek(len(filelinez))
-        filex.write("]}")
+
     filex.close()
     return usersfound
 
