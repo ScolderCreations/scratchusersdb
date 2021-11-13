@@ -33,7 +33,6 @@ def loadpage():
             filex.seek(len(filelinez) - 1)
             filex.write("\"" + link + "\",\n")
     
-
     filex.close()
     return usersfound
 
