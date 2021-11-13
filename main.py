@@ -2,11 +2,14 @@ from random import randint
 
 from requests_html import HTMLSession
 
+import json
+
 session = HTMLSession()
 usersfound = set(())
 specildeal = "https://scratch.mit.edu/explore/studios/all/"
 filef = open("index.json", "r")
 filecontent = filef.read()
+filecontent = json.parse(filecontent)
 currentpage = session.get('http://scratch.mit.edu')
 
 
@@ -24,15 +27,15 @@ def loadpage():
     print("progressing")
     filex = open("index.json", "r")
     filecont = filex.read()
+    filecont = json.parse(filecont)
     filelinez = filex.readlines()
     filex.close()
-    filex = open("index.json", "a")
+    filex = open("index.json", "w")
 
     for link in usersfound:
         if not link in filecont:
-            filex.seek(len(filelinez) - 1)
-            filex.write("\"" + link + "\",\n")
-    
+            filecont.add(link)
+    filex.write(filecont.stringify())
     filex.close()
     return usersfound
 
