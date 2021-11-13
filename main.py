@@ -9,8 +9,8 @@ usersfound = set(())
 specildeal = "https://scratch.mit.edu/explore/studios/all/"
 filef = open("index.json", "r")
 filecontent = filef.read()
-filecontent = json.parse(filecontent)
-currentpage = session.get('http://scratch.mit.edu')
+filecontent = json.load(filecontent)
+currentpage = session.get('https://scratch.mit.edu')
 
 
 def loadpage():
@@ -27,7 +27,7 @@ def loadpage():
     print("progressing")
     filex = open("index.json", "r")
     filecont = filex.read()
-    filecont = json.parse(filecont)
+    filecont = json.load(filecont)
     filelinez = filex.readlines()
     filex.close()
     filex = open("index.json", "w")
@@ -35,7 +35,7 @@ def loadpage():
     for link in usersfound:
         if not link in filecont:
             filecont.add(link)
-    filex.write(filecont.stringify())
+    filex.write(filecont.dump())
     filex.close()
     return usersfound
 
@@ -57,6 +57,9 @@ filex = open("index.json", "r")
 
 specildeal = filex.readlines()[len(filex.readlines()) - randint(1, 200)]
 specildeal = specildeal.replace("\n", "")
+specildeal = specildeal.replace("\"", "")
+specildeal = specildeal.replace(", ", "")
+specildeal = specildeal.replace(" ", "")
 
 currentpage = session.get(specildeal)
 
