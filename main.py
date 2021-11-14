@@ -2,15 +2,12 @@ from random import randint
 
 from requests_html import HTMLSession
 
-import json
-
 session = HTMLSession()
 usersfound = set(())
 specildeal = "https://scratch.mit.edu/explore/studios/all/"
-filef = open("index.json", "r")
+filef = open("users.txt", "r")
 filecontent = filef.read()
-filecontent = json.load(filef)
-currentpage = session.get('https://scratch.mit.edu')
+currentpage = session.get('http://scratch.mit.edu')
 
 
 def loadpage():
@@ -22,24 +19,23 @@ def loadpage():
     links = currentpage.html.absolute_links
 
     for link in links:
-        if "/scratch.mit.edu/users/" in link and not "/studios/" in link and not "/studios" in link and not "/favorites/" in link and not "/followers/" in link and not "/following/" in link and not "/projects/" in link and not "#" in link and not link in filecontent:
+        if "/scratch.mit.edu/users/" in link and not "/studios/" in link and not "/studios" in link and not "/favorites/" in link and not "/followers/" in link and not "/following/" in link and not "/projects/" in link and not "#comm" in link and not link in filecontent:
             usersfound.add(link)
     print("progressing")
-    filex = open("index.json", "r")
+    filex = open("users.txt", "r")
     filecont = filex.read()
-    filecont = json.load(filex)
-    filelinez = filex.readlines()
     filex.close()
-    filex = open("index.json", "w")
+    filex = open("users.txt", "a")
 
     for link in usersfound:
         if not link in filecont:
-            filecont.add(link)
-    filex.write(filecont.dump())
+            filex.write(link + "\n")
+
     filex.close()
     return usersfound
 
-filex = open("index.json", "r")
+
+filex = open("users.txt", "r")
 
 loadpage()
 
@@ -53,13 +49,10 @@ currentpage = session.get(specildeal)
 
 loadpage()
 
-filex = open("index.json", "r")
+filex = open("users.txt", "r")
 
 specildeal = filex.readlines()[len(filex.readlines()) - randint(1, 200)]
 specildeal = specildeal.replace("\n", "")
-specildeal = specildeal.replace("\"", "")
-specildeal = specildeal.replace(", ", "")
-specildeal = specildeal.replace(" ", "")
 
 currentpage = session.get(specildeal)
 
