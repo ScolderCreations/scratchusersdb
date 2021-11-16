@@ -1,5 +1,5 @@
 from random import randint
-
+import time
 from requests_html import HTMLSession
 
 session = HTMLSession()
@@ -52,7 +52,7 @@ loadpage()
 
 filex = open("users.txt", "r")
 flex = filex.readlines()
-for i in range(1,5):
+for i in range(1,30):
     specildeal = flex[len(flex) - randint(5, 1000)]
     specildeal = specildeal.replace("\n", "")
 
