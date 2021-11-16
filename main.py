@@ -53,7 +53,7 @@ loadpage()
 filex = open("users.txt", "r")
 
 for i in range(1,5):
-    specildeal = filex.readlines()[len(filex.readlines()) - randint(5, len(filex.readlines()))]
+    specildeal = filex.readlines()[len(filex.readlines()) - randint(5, 1000)]
     specildeal = specildeal.replace("\n", "")
 
     currentpage = session.get(specildeal)
