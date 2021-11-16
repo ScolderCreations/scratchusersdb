@@ -59,15 +59,16 @@ for i in range(1,30):
     currentpage = session.get(specildeal)
 
     loadpage()
+    time.sleep(1)
+    if specildeal[len(specildeal) - 1] == "/":
+        currentpage = session.get(specildeal + 'followers/')
+    else:
+        currentpage = session.get(specildeal + '/followers/')
+    loadpage()
 
-if specildeal[len(specildeal) - 1] == "/":
-    currentpage = session.get(specildeal + 'followers/')
-else:
-    currentpage = session.get(specildeal + '/followers/')
-loadpage()
-
-if specildeal[len(specildeal) - 1] == "/":
-    currentpage = session.get(specildeal + 'following/')
-else:
-    currentpage = session.get(specildeal + '/following/')
-loadpage()
+    if specildeal[len(specildeal) - 1] == "/":
+        currentpage = session.get(specildeal + 'following/')
+    else:
+        currentpage = session.get(specildeal + '/following/')
+    loadpage()
+    time.sleep(1)
