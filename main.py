@@ -51,9 +51,9 @@ currentpage = session.get(specildeal)
 loadpage()
 
 filex = open("users.txt", "r")
-
+flex = filex.readlines()
 for i in range(1,5):
-    specildeal = filex.readlines()[len(filex.readlines()) - randint(5, 1000)]
+    specildeal = flex[len(flex) - randint(5, 1000)]
     specildeal = specildeal.replace("\n", "")
 
     currentpage = session.get(specildeal)
