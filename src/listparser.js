@@ -1,10 +1,1 @@
-function lpCreateList1() {
-  fetch('https://scoldercreations.github.io/scratchusersdb/users.txt')
-  .then(response => response.text())
-  .then(data => var userstxt = data);
-
-  userstxt = userstxt.split("\n");
-  return userstxt
-}
-
-var scratchusersarray = lpCreateList1();
+/* This is a small, compressed script that turns the text file into a JS array. The global variable "scratchusersarray" will contain the array. */function l0h(){fetch('https://scoldercreations.github.io/scratchusersdb/users.txt').then(response=>response.text()).then(data=>var userstxt=data);userstxt=userstxt.split("\n");return userstxt}var scratchusersarray=l0h();
