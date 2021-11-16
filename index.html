@@ -1,4 +1,7 @@
 <script src="src/listparser.min.js"></script>
+<body id="entrypoint">
+
+</body>
 <script>
-  document.write((scratchusersarray || "unable to load list file"));
+  document.getElementById("entrypoint").textContent = (scratchusersarray || "unable to load list file");
 </script>
