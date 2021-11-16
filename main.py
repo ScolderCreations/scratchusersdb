@@ -30,8 +30,8 @@ def loadpage():
     for link in usersfound:
         if not link in filecont:
             filex.write(link + "\n")
-            usersfound.remove(link)
-
+    
+    usersfound.clear()
     filex.close()
     return usersfound
 
