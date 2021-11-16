@@ -30,3 +30,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests-html
           python main.py
+      
+      - name: Commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update database 
