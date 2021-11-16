@@ -52,12 +52,13 @@ loadpage()
 
 filex = open("users.txt", "r")
 
-specildeal = filex.readlines()[len(filex.readlines()) - randint(1, 200)]
-specildeal = specildeal.replace("\n", "")
+for i in range(1,5):
+    specildeal = filex.readlines()[len(filex.readlines()) - randint(1, 200)]
+    specildeal = specildeal.replace("\n", "")
 
-currentpage = session.get(specildeal)
+    currentpage = session.get(specildeal)
 
-loadpage()
+    loadpage()
 
 if specildeal[len(specildeal) - 1] == "/":
     currentpage = session.get(specildeal + 'followers/')
