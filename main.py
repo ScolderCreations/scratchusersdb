@@ -28,7 +28,7 @@ def loadpage():
     filex = open("users.txt", "a")
 
     for link in usersfound:
-        if not link in filecont:
+        if not link in filecont and not link + "/" in filecont and not link - 1 in filecont:
             filex.write(link + "\n")
     
     usersfound.clear()
