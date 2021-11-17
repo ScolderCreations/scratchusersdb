@@ -13,6 +13,7 @@ for line in filelines:
     f = f.replace("/", "")
     if not f in nfilelines:
         nfilelines.add(f)
+print(nfilelines)
 for line in nfilelines:
     if not newlines.index(line) > 0:
         newlines.append(line)
