@@ -2,7 +2,7 @@ import time
 y = time.gmtime()
 readf = open('users.txt', 'r')
 writef = open('users.txt', 'w')
-
+print(y)
 filelines = readf.readlines()
 nfilelines = set(())
 for line in filelines:
@@ -16,4 +16,4 @@ for line in filelines:
 writef.write(nfilelines)
 writef.close()
 readf.close()
-print(time.gmtime() - y)
+print(time.gmtime())
