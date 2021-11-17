@@ -16,7 +16,10 @@ for line in filelines:
 for line in nfilelines:
     if not newlines.index(line) > 0:
         newlines.append(line)
-writef.write(str(newlines))
+lts = ""
+for line in newlines:
+    lts = lts + line
+writef.write(lts)
 writef.close()
 readf.close()
 print(time.gmtime())
