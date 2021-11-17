@@ -10,6 +10,9 @@ for line in filelines:
     f = f.replace("https:", "")
     f = f.replace("http:", "")
     f = f.replace("/", "")
-    nfilelines.add(f)
+    if not f in nfilelines:
+        nfilelines.add(f)
 
 writef.write(nfilelines)
+writef.close()
+readf.close()
