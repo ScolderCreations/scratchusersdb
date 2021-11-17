@@ -14,7 +14,7 @@ for line in filelines:
     if not f in nfilelines:
         nfilelines.add(f)
 for line in nfilelines:
-    if not line in newlines:
+    if not newlines.index(line) > 0:
         newlines.append(line)
 writef.write(str(newlines))
 writef.close()
