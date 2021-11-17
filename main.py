@@ -9,7 +9,8 @@ filef = open("users.txt", "r")
 filecontent = filef.read()
 currentpage = session.get('http://scratch.mit.edu')
 
-
+if len(filef.readlines()) > 12345:
+    raise Exception("File too large to edit safely")
 def loadpage():
     print(currentpage.url)
     try:
