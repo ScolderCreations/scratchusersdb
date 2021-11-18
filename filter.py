@@ -1,15 +1,13 @@
-import time
-y = time.gmtime()
-readf = open('users.txt', 'r')
-writef = open('users.txt', 'w')
-print(y)
-filelines = readf.read()
-f = filelines.replace("//scratch.mit.edu/users/", "")
-f = f.replace("https:", "")
-f = f.replace("http:", "")
-f = f.replace("/", "")
-print(f)
-# writef.write(f)
-writef.close()
-readf.close()
-print(time.gmtime())
+readf = open('./users.txt','r')
+a = ['//scratch.mit.edu/users/','https:','http:', "/"]
+lst = []
+for line in readf:
+    for word in a:
+        if word in line:
+            line = line.replace(word,'')
+    lst.append(line)
+f.close()
+f = open('./users.txt','w')
+for line in lst:
+    f.write(line)
+f.close()
