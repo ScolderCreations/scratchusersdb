@@ -11,3 +11,16 @@ f = open('./users.txt','w')
 for line in lst:
     f.write(line)
 f.close()
+lst2 = []
+readf = open('./users.txt','r')
+for line in readf:
+    for item in lst:
+        if line == item:
+            print("dupe found")
+        else:
+            lst2.append(item)
+
+f = open('./users.txt','w')
+for line in lst2:
+    f.write(line)
+f.close()
