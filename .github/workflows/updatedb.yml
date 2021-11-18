@@ -32,7 +32,7 @@ jobs:
       - name: Update database
         run: |
           python main.py
-      #   python filter.py
+          python filter.py
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
