@@ -14,7 +14,7 @@ f.close()
 lst2 = []
 readf = open('./users.txt','r')
 for line in readf:
-    for item in lst:
+    for item in lst2:
         if line == item:
             print("dupe found")
         else:
