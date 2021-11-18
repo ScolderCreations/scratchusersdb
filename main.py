@@ -56,7 +56,7 @@ flex = filex.readlines()
 for i in range(1,30):
     specildeal = flex[len(flex) - randint(5, 1000)]
     specildeal = specildeal.replace("\n", "")
-
+    specildeal = f'https://scratch.mit.edu/users/{specildeal}/' 
     currentpage = session.get(specildeal)
 
     loadpage()
