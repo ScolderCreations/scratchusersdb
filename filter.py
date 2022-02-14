@@ -4,8 +4,8 @@ lst = []
 for line in readf:
     for word in a:
         if word in line:
-            line = line.replace(word,'')
-    lst.append(line)
+            linp = line.replace(word,'')
+    lst.append(linp)
 readf.close()
 f = open('./users.txt','w')
 for line in lst:
@@ -19,7 +19,7 @@ for line in readf:
             print("dupe found")
         else:
             lst2.append(item)
-
+readf.close()
 f = open('./users.txt','w')
 for line in lst2:
     f.write(line)
