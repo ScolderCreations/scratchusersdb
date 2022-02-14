@@ -2,6 +2,7 @@ readf = open('./users.txt','r')
 a = ['//scratch.mit.edu/users/','https:','http:', "/"]
 lst = []
 for line in readf:
+    linp=line
     for word in a:
         if word in line:
             linp = line.replace(word,'')
